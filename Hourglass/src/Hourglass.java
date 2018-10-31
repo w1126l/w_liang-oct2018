@@ -14,7 +14,7 @@ public class Hourglass {
 		System.out.println("||");
 	}
 	
-	public static void colon(int colons) {
+	public static void colonTop(int colons) {
 		String colon = "";
 		for (int i = 1; i <= colons; i++) {
 			colon += ":";
@@ -34,11 +34,11 @@ public class Hourglass {
 		int maxColon = (length - 2);
 		int minColon = 2;
 		for (int i = maxColon; i >= minColon; i -= 2) {
-			for (int j = (maxColon / 2); j >= minColon; j -= 2) {
+			for (int j = (maxColon); j >= minColon; j -= 2) {
 				System.out.print(" ");
 			}
 			System.out.print("\\");
-			Hourglass.colon(i);
+			Hourglass.colonTop(i);
 			System.out.println("/");
 		}
 	}
