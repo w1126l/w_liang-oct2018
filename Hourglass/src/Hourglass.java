@@ -2,26 +2,6 @@ import java.util.*;
 
 public class Hourglass {
 	
-	public static void middle(int length) {
-		length -= 5;
-		String spaces = "";
-		int count = 1;
-		while (count <= length) {
-			count++;
-			spaces += " ";
-		}
-		System.out.print(spaces);
-		System.out.println("||");
-	}
-	
-	public static void colonTop(int colons) {
-		String colon = "";
-		for (int i = 1; i <= colons; i++) {
-			colon += ":";
-		}
-		System.out.print(colon);
-	}
-	
 	public static void base(int length) {
 		System.out.print("|");
 		for (int i = 1; i <= length; i++) {
@@ -31,21 +11,23 @@ public class Hourglass {
 	}
 	
 	public static void topHalf(int length) {
-		int maxColon = (length - 2);
-		int minColon = 2;
-		for (int i = maxColon; i >= minColon; i -= 2) {
-			for (int j = (maxColon); j >= minColon; j -= 2) {
-				System.out.print(" ");
-			}
-			System.out.print("\\");
-			Hourglass.colonTop(i);
-			System.out.println("/");
-		}
+		
 	}
 	
-	
-	public static void bottomHalf(int length) {
+	public static void middle(int length) {
+		length = (length / 2);
+		String spaces = "";
+		int count = 1;
+		while (count <= length) {
+			count++;
+			spaces += " ";
+		}
+		System.out.print(spaces);
+		System.out.println("||");
+	}
 
+	public static void bottomHalf(int length) {
+		
 	}
 	
 	public static void main(String[]args) {
@@ -58,6 +40,7 @@ public class Hourglass {
 		Hourglass.base(length);
 		Hourglass.topHalf(length);
 		Hourglass.middle(length);
+		Hourglass.bottomHalf(length);
 		Hourglass.base(length);
 		
 		userInput.close();
