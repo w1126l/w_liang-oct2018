@@ -11,6 +11,11 @@ public class Split {
 		
 		System.out.println("Part One: ");
 		partOne();
+		
+		System.out.println();
+		
+		System.out.println("Part Two: ");
+		partTwo();
 
 	}
 	
@@ -91,6 +96,14 @@ public class Split {
 
 */
 		
+		String messySandwich = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese";
+		
+		int breadStart = messySandwich.indexOf(" bread ");
+		
+		messySandwich = messySandwich.substring(breadStart);
+		String[] noBread = messySandwich.split(" bread ");
+		
+		System.out.println(noBread[1]);
 		
 	}
 	

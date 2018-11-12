@@ -2,47 +2,102 @@ import java.util.*;
 
 public class Hourglass {
 	
-	public static void base(int length) {
-		System.out.print("|");
-		for (int i = 1; i <= length; i++) {
-			System.out.print("\"");
+	public static void main(String[] args) {
+		
+		System.out.println("How long would you like your hourglass to be?\n");
+		Scanner userInput = new Scanner(System.in);
+		
+		int length = userInput.nextInt();
+		
+		if (length <= 2) {
+			
+			System.out.println("Base cannot be an integer smaller than or equal to 2.");
+			
+		} else if (length % 2 == 0) {
+			
+			System.out.println(base(length));
+			topHalf(length);
+			System.out.println(middle(length));
+			bottomHalf(length);
+			System.out.println(base(length));
+		
+		} else {
+			
+			System.out.println("Base cannot be an odd number.");
 		}
-		System.out.println("|");
+		
+		userInput.close();
+
+	}
+	
+	public static String base(int length) {
+		
+		String base = "|";
+		for (int i = 1; i <= length; i++) {
+			base += ("\"");
+		}
+		base += "|";
+		return base;
+		
 	}
 	
 	public static void topHalf(int length) {
 		
-	}
+		int colons = (length - 2);
+		int rows = ((length - 2) / 2);
+		
+		for (int i = 0; i < rows; i++) {
+			
+			for (int j = 0; j <= i; j++) {
+				System.out.print(" ");
+			}
+			
+			System.out.print("\\");
+			
+			for (int k = 0; k < colons; k++) {
+				System.out.print(":");
+			}
+			colons -=2;
+			
+			System.out.println("/");
+			
+		}
+		
+	} 
 	
-	public static void middle(int length) {
-		length = (length / 2);
+	public static String middle(int length) {
+		
+		int middle = (length / 2);
 		String spaces = "";
-		int count = 1;
-		while (count <= length) {
-			count++;
+		
+		for (int i = 1; i <= middle; i++) {
 			spaces += " ";
 		}
-		System.out.print(spaces);
-		System.out.println("||");
+		return spaces + "||";
+		
 	}
-
+	
 	public static void bottomHalf(int length) {
 		
+		int middle = (length / 2);
+		int rows = ((length - 2) / 2);
+		
+		for (int i = 0; i < rows; i++) {
+			
+			for (int j = middle; j > i + 1; j--) {
+				System.out.print(" ");
+			}
+			
+			System.out.print("/");
+			
+			for (int k = 0; k < (2 * (i + 1)); k++) {
+				System.out.print(":");
+			}
+
+			System.out.println("\\");
+			
+		}
+		
 	}
 	
-	public static void main(String[]args) {
-	
-		Scanner userInput = new Scanner(System.in);
-		
-		System.out.println("How long would you like your hourglass to be?");
-		int length = userInput.nextInt();
-		
-		Hourglass.base(length);
-		Hourglass.topHalf(length);
-		Hourglass.middle(length);
-		Hourglass.bottomHalf(length);
-		Hourglass.base(length);
-		
-		userInput.close();
-	}
 }
